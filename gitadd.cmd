@@ -1,0 +1,1 @@
+git add *.cpp *.ui *.pro *.h *.cmd
