@@ -264,6 +264,52 @@ static bool calc_f_tan(Tcalc_ds ** ds) {
 }
 
 //-------------------------------------------------------------------
+static bool calc_f_asin(Tcalc_ds ** ds) {
+    calc_dpush_ld(ds, asin(calc_dpop_ld(ds)));
+    return true;
+}
+
+//-------------------------------------------------------------------
+static bool calc_f_acos(Tcalc_ds ** ds) {
+    calc_dpush_ld(ds, acos(calc_dpop_ld(ds)));
+    return true;
+}
+
+//-------------------------------------------------------------------
+static bool calc_f_atan(Tcalc_ds ** ds) {
+    calc_dpush_ld(ds, atan(calc_dpop_ld(ds)));
+    return true;
+}
+
+//-------------------------------------------------------------------
+static bool calc_f_atan2(Tcalc_ds ** ds) {
+    std::complex<long double> v1 = calc_dpop_ld(ds);
+    std::complex<long double> v2 = calc_dpop_ld(ds);
+    calc_dpush_ld(ds, atan2l(v1.real(), v2.real()));
+    return true;
+}
+
+//-------------------------------------------------------------------
+static bool calc_f_floor(Tcalc_ds ** ds) {
+    std::complex<long double> v = calc_dpop_ld(ds);
+    std::complex<long double> x;
+    x.real(floorl(v.real()));
+    x.imag(floorl(v.imag()));
+    calc_dpush_ld(ds, x);
+    return true;
+}
+
+//-------------------------------------------------------------------
+static bool calc_f_ceil(Tcalc_ds ** ds) {
+    std::complex<long double> v = calc_dpop_ld(ds);
+    std::complex<long double> x;
+    x.real(ceill(v.real()));
+    x.imag(ceill(v.imag()));
+    calc_dpush_ld(ds, x);
+    return true;
+}
+
+//-------------------------------------------------------------------
 static bool calc_f_sinh(Tcalc_ds ** ds) {
     calc_dpush_ld(ds, sinh(calc_dpop_ld(ds)));
     return true;
@@ -319,6 +365,12 @@ Tcalc_func calc_func[] = { //
     { "cos", 130, calc_f_cos, 1 }, //
     { "sin", 130, calc_f_sin, 1 }, //
     { "tan", 130, calc_f_tan, 1 }, //
+    { "acos", 130, calc_f_acos, 1 }, //
+    { "asin", 130, calc_f_asin, 1 }, //
+    { "atan", 130, calc_f_atan, 1 }, //
+    { "atan2", 130, calc_f_atan2, 1 }, //
+    { "floor", 130, calc_f_floor, 1 }, //
+    { "ceil", 130, calc_f_ceil, 1 }, //
     { "ln", 130, calc_f_ln, 1 }, //
     { "lg", 130, calc_f_lg, 1 }, //
     { "abs", 130, calc_f_abs, 1 }, //

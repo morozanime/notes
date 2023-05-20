@@ -19,13 +19,18 @@ public:
 
 private slots:
     void on_plainTextEdit_textChanged();
-
     void on_checkBox_stateChanged(int arg1);
+    void on_lineEditPrec0_editingFinished();
 
 private:
     Ui::MainWindow *ui;
     void eval(QString expr);
     QFile * page = nullptr;
+    void ui_update(void);
+    int prec0 = 8;
+    bool modeHex = false;
+    void calculate(void);
+
 };
 
 class Range {
