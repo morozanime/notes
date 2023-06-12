@@ -8,13 +8,8 @@
 #ifndef SUFF_H_
 #define SUFF_H_
 
-#include <complex>
-typedef struct {
-    const char * name;
-    std::complex<long double> scale;
-} Tcalc_fsuff;
-
+#include "ccalc/dstack.h"
 #include    <inttypes.h>
-bool calc_is_a_fsuff(std::complex<long double> * scale, size_t * len, char * src);
+bool calc_is_a_fsuff(Tcalc_num * scale, size_t * len, char * src, Tcalc_num::num_type_e type);
 
 #endif /* SUFF_H_ */

@@ -21,6 +21,7 @@ SOURCES += \
     ccalc/func.cpp \
     ccalc/ldcalc.cpp \
     ccalc/num.cpp \
+    ccalc/solver.cpp \
     ccalc/suff.cpp \
     main.cpp \
     mainwindow.cpp
@@ -31,6 +32,7 @@ HEADERS += \
     ccalc/func.h \
     ccalc/ldcalc.h \
     ccalc/num.h \
+    ccalc/solver.h \
     ccalc/suff.h \
     mainwindow.h
 
